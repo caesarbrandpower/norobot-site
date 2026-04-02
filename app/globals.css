@@ -1,17 +1,20 @@
 /* ═══════════════════════════════════════════════
-   NoRobot.ai — Design System
-   Aesthetic: Refined editorial warmth
-   Reference: posthuman.nl
+   NoRobot.ai — Design System v3
+   Three-font system: Space Grotesk + Playfair + Inter
    ═══════════════════════════════════════════════ */
 
 :root {
   --cream: #F5F0E8;
   --ink: #1A1A1A;
+  --dark: #111111;
   --sub: #6B6560;
   --orange: #D4580A;
   --volt: #CBFF00;
+  --green: #22C55E;
   --white: #FFFFFF;
   --border: #E8E3D9;
+  --muted: #888888;
+  --faint: #555555;
 }
 
 *, *::before, *::after {
@@ -37,7 +40,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1080px;
+  max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
@@ -54,10 +57,10 @@ body {
 /* ── Eyebrow ── */
 
 .eyebrow {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 12px;
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sub);
   line-height: 1.4;
@@ -75,24 +78,8 @@ body {
 }
 
 .nav.is-dark {
-  background-color: var(--ink);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-.nav.is-dark .logo-text {
-  color: var(--white);
-}
-
-.nav.is-dark .nav-link {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.nav.is-dark .nav-link:hover {
-  color: var(--white);
-}
-
-.nav.is-dark .hamburger span {
-  background-color: var(--white);
+  background-color: var(--dark);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 .nav-inner {
@@ -117,21 +104,32 @@ body {
   gap: 0;
 }
 
-.logo-mark {
-  width: 10px;
-  height: 10px;
+.logo-dot {
+  width: 8px;
+  height: 8px;
   background-color: var(--orange);
-  border-radius: 2px;
+  border-radius: 50%;
   flex-shrink: 0;
+  animation: pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
 }
 
 .logo-text {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--ink);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
+}
+
+.nav.is-dark .logo-text {
+  color: var(--white);
 }
 
 /* Nav links */
@@ -149,9 +147,10 @@ body {
 }
 
 .nav-link {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: var(--sub);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -159,6 +158,14 @@ body {
 
 .nav-link:hover {
   color: var(--ink);
+}
+
+.nav.is-dark .nav-link {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.nav.is-dark .nav-link:hover {
+  color: var(--white);
 }
 
 /* Hamburger */
@@ -188,7 +195,11 @@ body {
   height: 1.5px;
   background-color: var(--ink);
   border-radius: 1px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.4s ease;
+}
+
+.nav.is-dark .hamburger span {
+  background-color: var(--white);
 }
 
 .hamburger.is-open span:first-child {
@@ -218,9 +229,9 @@ body {
 }
 
 .mobile-menu a {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 400;
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--ink);
   text-decoration: none;
 }
@@ -228,9 +239,21 @@ body {
 /* ── Hero ── */
 
 .hero {
+  position: relative;
   padding-top: 5rem;
   padding-bottom: 5rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -242,29 +265,29 @@ body {
 
 @media (min-width: 1024px) {
   .hero {
-    padding-top: 160px;
-    padding-bottom: 160px;
+    padding-top: 170px;
+    padding-bottom: 170px;
   }
 }
 
 .hero-eyebrow {
   margin-bottom: 1.75rem;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .hero-eyebrow {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.5rem;
   }
 }
 
 .hero-headline {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  position: relative;
+  font-size: 44px;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  max-width: 720px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.75rem;
@@ -279,20 +302,28 @@ body {
 
 @media (min-width: 1024px) {
   .hero-headline {
-    font-size: 88px;
+    font-size: 96px;
   }
 }
 
-.hero-headline em {
+.hero-headline .tech {
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.hero-headline .human {
+  font-family: var(--font-playfair), Georgia, serif;
   font-style: italic;
+  font-weight: 400;
 }
 
 .hero-body {
+  position: relative;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.7;
   color: var(--sub);
-  max-width: 480px;
+  max-width: 460px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2.25rem;
@@ -305,6 +336,7 @@ body {
 }
 
 .hero-buttons {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -317,10 +349,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 14px 28px;
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 30px;
   border-radius: 100px;
   text-decoration: none;
   cursor: pointer;
@@ -395,7 +428,7 @@ body {
   line-height: 1.15;
   letter-spacing: -0.015em;
   color: var(--ink);
-  max-width: 680px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5rem;
@@ -442,22 +475,25 @@ body {
   background-color: var(--white);
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 2px solid transparent;
   display: flex;
   flex-direction: column;
   gap: 0;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease;
+              box-shadow 0.4s ease,
+              border-top-color 0.3s ease;
 }
 
 .tool-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  border-top-color: var(--orange);
 }
 
 .tool-name {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-space), system-ui, sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -486,30 +522,47 @@ body {
   color: var(--orange);
 }
 
-.tool-badge {
-  display: flex;
+/* Status pills */
+
+.tool-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   margin-top: auto;
   padding-top: 16px;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-space), system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 500;
-  color: var(--orange);
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
-.tool-badge-dot {
+.tool-pill-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--orange);
   flex-shrink: 0;
 }
 
-/* ── Dark Contact + Footer ── */
+.tool-pill--live {
+  color: var(--green);
+}
+
+.tool-pill--live .tool-pill-dot {
+  background-color: var(--green);
+}
+
+.tool-pill--soon {
+  color: var(--sub);
+}
+
+.tool-pill--soon .tool-pill-dot {
+  background-color: var(--sub);
+}
+
+/* ── Dark Section (Visie + Contact combined) ── */
 
 .dark-section {
-  background-color: var(--ink);
+  background-color: var(--dark);
   padding-top: 6rem;
   padding-bottom: 3rem;
 }
@@ -521,8 +574,15 @@ body {
   }
 }
 
+@media (min-width: 1024px) {
+  .dark-section {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+  }
+}
+
 .dark-section .eyebrow {
-  color: #6B6560;
+  color: var(--faint);
 }
 
 .dark-section .section-headline {
@@ -530,7 +590,40 @@ body {
 }
 
 .dark-section .section-body {
-  color: #888888;
+  color: var(--muted);
+}
+
+/* Visie block inside dark */
+
+.dark-visie {
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 768px) {
+  .dark-visie {
+    margin-bottom: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Contact headline in Space Grotesk */
+
+.contact-headline {
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .contact-headline {
+    font-size: 36px;
+  }
 }
 
 .mail-link {
@@ -542,32 +635,98 @@ body {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
+  margin-top: 1.5rem;
   transition: text-decoration-color 0.2s ease;
-  margin-top: 2rem;
 }
 
 .mail-link:hover {
   text-decoration-color: transparent;
 }
 
-.dark-footer {
+/* ── Footer (inside dark) ── */
+
+.site-footer {
   margin-top: 5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 @media (min-width: 768px) {
-  .dark-footer {
+  .site-footer {
     margin-top: 6rem;
   }
 }
 
-.dark-footer-text {
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0;
+}
+
+.footer-logo .logo-dot {
+  animation: none;
+}
+
+.footer-logo .logo-text {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.footer-nav a {
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-copy {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 12px;
-  color: #555555;
+  color: var(--faint);
   line-height: 1.5;
-  text-align: center;
 }
 
 /* ── Coming Soon ── */
@@ -591,7 +750,7 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -600,20 +759,19 @@ body {
   transform: translateY(0);
 }
 
-.reveal.d1 { transition-delay: 0.06s; }
-.reveal.d2 { transition-delay: 0.12s; }
-.reveal.d3 { transition-delay: 0.18s; }
-.reveal.d4 { transition-delay: 0.24s; }
-.reveal.d5 { transition-delay: 0.30s; }
-.reveal.d6 { transition-delay: 0.36s; }
-.reveal.d7 { transition-delay: 0.42s; }
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.16s; }
+.reveal.d3 { transition-delay: 0.24s; }
+.reveal.d4 { transition-delay: 0.32s; }
+.reveal.d5 { transition-delay: 0.40s; }
+.reveal.d6 { transition-delay: 0.48s; }
 
-/* Hero uses immediate animation (above fold) */
+/* Hero: immediate animation (above fold) */
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -626,6 +784,6 @@ body {
 }
 
 .fade-up.d1 { animation-delay: 0.06s; }
-.fade-up.d2 { animation-delay: 0.12s; }
-.fade-up.d3 { animation-delay: 0.18s; }
-.fade-up.d4 { animation-delay: 0.24s; }
+.fade-up.d2 { animation-delay: 0.14s; }
+.fade-up.d3 { animation-delay: 0.22s; }
+.fade-up.d4 { animation-delay: 0.30s; }

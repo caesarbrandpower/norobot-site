@@ -11,7 +11,7 @@ export function Navbar() {
       <div className="container">
         <div className="nav-inner">
           <Link href="/" className="logo" onClick={() => setOpen(false)}>
-            <span className="logo-mark" />
+            <span className="logo-dot" />
             <span className="logo-text">norobot</span>
           </Link>
 

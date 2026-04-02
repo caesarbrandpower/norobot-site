@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Playfair_Display, Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Navbar } from './components/Navbar'
 import { ScrollReveal } from './components/ScrollReveal'
@@ -16,6 +16,12 @@ const inter = Inter({
   display: 'swap',
 })
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'NoRobot - AI built for real people',
   description:
@@ -29,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl">
-      <body className={`${playfair.variable} ${inter.variable}`}>
+      <body className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
         <Navbar />
         <ScrollReveal />
         {children}
