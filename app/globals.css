@@ -324,21 +324,45 @@ body {
   }
 }
 
-.hero-glyph {
-  font-family: var(--font-space), system-ui, sans-serif;
-  font-size: 280px;
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.06em;
-  color: var(--border);
-  user-select: none;
-  pointer-events: none;
+/* NR monogram SVG container */
+
+.hero-monogram {
+  position: relative;
+  width: 280px;
+  height: 280px;
 }
 
 @media (min-width: 1100px) {
-  .hero-glyph {
-    font-size: 320px;
+  .hero-monogram {
+    width: 320px;
+    height: 320px;
   }
+}
+
+.hero-monogram-text {
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 200px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  fill: #E8E2D8;
+}
+
+@media (min-width: 1100px) {
+  .hero-monogram-text {
+    font-size: 230px;
+  }
+}
+
+/* Orange dot overlay on monogram */
+.hero-monogram::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--orange) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  opacity: 0.15;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .hero-eyebrow {
@@ -574,6 +598,64 @@ a.tool-url:hover {
 }
 
 /* ═══════════════════════════════════════════════
+   STATS SECTION — bold numbers
+   ═══════════════════════════════════════════════ */
+
+.stats-section {
+  background-color: var(--white);
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 768px) {
+  .stats-section {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.stat-number {
+  font-family: var(--font-space), system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .stat-number {
+    font-size: 80px;
+  }
+}
+
+.stat-label {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sub);
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════
    DARK VISIE SECTION — noise texture
    ═══════════════════════════════════════════════ */
 
@@ -604,11 +686,23 @@ a.tool-url:hover {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.04;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 256px 256px;
+  background-size: 512px 512px;
+}
+
+/* Warm orange glow top-left */
+.visie-section::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(212, 88, 10, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .visie-inner {
@@ -686,9 +780,34 @@ a.tool-url:hover {
    ═══════════════════════════════════════════════ */
 
 .contact-section {
+  position: relative;
   background-color: var(--darker);
   padding-top: 6rem;
   padding-bottom: 3rem;
+  overflow: hidden;
+}
+
+/* Noise + warm glow for contact section */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 512px 512px;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -15%;
+  width: 50%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, rgba(203, 255, 0, 0.04) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -699,6 +818,7 @@ a.tool-url:hover {
 }
 
 .contact-inner {
+  position: relative;
   text-align: center;
 }
 
@@ -748,6 +868,7 @@ a.tool-url:hover {
 /* Footer bar */
 
 .site-footer {
+  position: relative;
   margin-top: 5rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);

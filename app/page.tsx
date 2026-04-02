@@ -28,7 +28,19 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-visual fade-up d5">
-              <span className="hero-glyph" aria-hidden="true">NR</span>
+              <div className="hero-monogram" aria-hidden="true">
+                <svg viewBox="0 0 280 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                  <text
+                    x="50%"
+                    y="54%"
+                    dominantBaseline="middle"
+                    textAnchor="middle"
+                    className="hero-monogram-text"
+                  >
+                    NR
+                  </text>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -106,6 +118,26 @@ export default function Home() {
               <div className="tool-pill tool-pill--soon">
                 <span className="tool-pill-label">Binnenkort</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats ── */}
+      <section className="stats-section">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="reveal d1">
+              <div className="stat-number">4</div>
+              <div className="stat-label">tools live</div>
+            </div>
+            <div className="reveal d2">
+              <div className="stat-number">1</div>
+              <div className="stat-label">bureau erachter</div>
+            </div>
+            <div className="reveal d3">
+              <div className="stat-number">&infin;</div>
+              <div className="stat-label">mogelijkheden</div>
             </div>
           </div>
         </div>
