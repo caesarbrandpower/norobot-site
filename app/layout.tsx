@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import { Navbar } from './components/Navbar'
+import { ScrollReveal } from './components/ScrollReveal'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="nl">
       <body className={`${playfair.variable} ${inter.variable}`}>
         <Navbar />
+        <ScrollReveal />
         {children}
       </body>
     </html>

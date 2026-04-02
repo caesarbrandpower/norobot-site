@@ -23,9 +23,9 @@ export default function Home() {
 
       <section id="tools" className="section">
         <div className="container">
-          <p className="eyebrow section-eyebrow fade-up">TOOLS</p>
+          <p className="eyebrow section-eyebrow reveal">TOOLS</p>
           <div className="tools-grid">
-            <div className="tool-card fade-up d1">
+            <div className="tool-card reveal d1">
               <span className="tool-name">BRANDPROMPT</span>
               <p className="tool-description">
                 Genereer een complete merkpositionering in minuten. Van
@@ -45,7 +45,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="tool-card fade-up d2">
+            <div className="tool-card reveal d2">
               <span className="tool-name">MARKTSCAN</span>
               <p className="tool-description">
                 Analyseer je concurrenten en ontdek kansen in de markt met
@@ -65,7 +65,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="tool-card fade-up d3">
+            <div className="tool-card reveal d3">
               <span className="tool-name">BRANDPOWER</span>
               <p className="tool-description">
                 Je persoonlijke AI brand coach. Bouw een sterker merk met
@@ -85,7 +85,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="tool-card fade-up d4">
+            <div className="tool-card reveal d4">
               <span className="tool-name">WAY BETTER</span>
               <p className="tool-description">
                 Vergelijk opties en neem betere beslissingen. Helder,
@@ -105,11 +105,11 @@ export default function Home() {
 
       <section id="visie" className="section">
         <div className="container">
-          <p className="eyebrow section-eyebrow fade-up">WAAROM NOROBOT</p>
-          <h2 className="section-headline fade-up d1">
+          <p className="eyebrow section-eyebrow reveal">WAAROM NOROBOT</p>
+          <h2 className="section-headline reveal d1">
             <em>Er zijn genoeg tools die indrukwekkend zijn.</em>
           </h2>
-          <p className="section-body fade-up d2">
+          <p className="section-body reveal d2">
             Te weinig die iets oplossen. NoRobot bouwt tools voor mensen die
             al weten dat AI kan helpen, maar nog zoeken naar iets wat echt bij
             hun leven past. Praktisch, direct, zonder gedoe.
@@ -117,36 +117,29 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="section-divider" />
-
-      <section id="contact" className="section">
+      <section id="contact" className="dark-section" data-dark>
         <div className="container">
-          <p className="eyebrow section-eyebrow fade-up">CONTACT</p>
-          <h2 className="section-headline fade-up d1">
+          <p className="eyebrow section-eyebrow reveal">CONTACT</p>
+          <h2 className="section-headline reveal d1">
             <em>Samen iets bouwen?</em>
           </h2>
-          <p className="section-body fade-up d2">
+          <p className="section-body reveal d2">
             Wil je samenwerken, een tool proberen of gewoon even sparren?
           </p>
           <a
             href="mailto:caesar@newfound.agency"
-            className="mail-link fade-up d3"
+            className="mail-link reveal d3"
           >
             caesar@newfound.agency
           </a>
+
+          <div className="dark-footer">
+            <p className="dark-footer-text">
+              NoRobot is een initiatief van Newfound &mdash; strategisch branding bureau.
+            </p>
+          </div>
         </div>
       </section>
-
-      <hr className="section-divider" />
-
-      <footer className="footer">
-        <div className="container">
-          <p className="footer-text">
-            &copy; {new Date().getFullYear()} NoRobot.ai. Alle rechten
-            voorbehouden.
-          </p>
-        </div>
-      </footer>
     </main>
   )
 }

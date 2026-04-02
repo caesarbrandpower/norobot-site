@@ -71,6 +71,28 @@ body {
   z-index: 100;
   background-color: var(--cream);
   border-bottom: 1px solid var(--border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.nav.is-dark {
+  background-color: var(--ink);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.nav.is-dark .logo-text {
+  color: var(--white);
+}
+
+.nav.is-dark .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nav.is-dark .nav-link:hover {
+  color: var(--white);
+}
+
+.nav.is-dark .hamburger span {
+  background-color: var(--white);
 }
 
 .nav-inner {
@@ -484,35 +506,66 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Contact ── */
+/* ── Dark Contact + Footer ── */
+
+.dark-section {
+  background-color: var(--ink);
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .dark-section {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.dark-section .eyebrow {
+  color: #6B6560;
+}
+
+.dark-section .section-headline {
+  color: var(--white);
+}
+
+.dark-section .section-body {
+  color: #888888;
+}
 
 .mail-link {
   display: block;
   text-align: center;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 17px;
-  color: var(--orange);
+  color: var(--volt);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
   transition: text-decoration-color 0.2s ease;
+  margin-top: 2rem;
 }
 
 .mail-link:hover {
   text-decoration-color: transparent;
 }
 
-/* ── Footer ── */
-
-.footer {
+.dark-footer {
+  margin-top: 5rem;
   padding-top: 2rem;
-  padding-bottom: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-text {
+@media (min-width: 768px) {
+  .dark-footer {
+    margin-top: 6rem;
+  }
+}
+
+.dark-footer-text {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 12px;
-  color: var(--sub);
+  color: #555555;
   line-height: 1.5;
   text-align: center;
 }
@@ -534,7 +587,28 @@ body {
   color: var(--sub);
 }
 
-/* ── Animations ── */
+/* ── Scroll Reveal Animations ── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.d1 { transition-delay: 0.06s; }
+.reveal.d2 { transition-delay: 0.12s; }
+.reveal.d3 { transition-delay: 0.18s; }
+.reveal.d4 { transition-delay: 0.24s; }
+.reveal.d5 { transition-delay: 0.30s; }
+.reveal.d6 { transition-delay: 0.36s; }
+.reveal.d7 { transition-delay: 0.42s; }
+
+/* Hero uses immediate animation (above fold) */
 
 @keyframes fadeUp {
   from {
@@ -551,10 +625,7 @@ body {
   animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.d1 { animation-delay: 0.06s; }
-.d2 { animation-delay: 0.12s; }
-.d3 { animation-delay: 0.18s; }
-.d4 { animation-delay: 0.24s; }
-.d5 { animation-delay: 0.30s; }
-.d6 { animation-delay: 0.36s; }
-.d7 { animation-delay: 0.42s; }
+.fade-up.d1 { animation-delay: 0.06s; }
+.fade-up.d2 { animation-delay: 0.12s; }
+.fade-up.d3 { animation-delay: 0.18s; }
+.fade-up.d4 { animation-delay: 0.24s; }
