@@ -107,13 +107,12 @@ export default function Home() {
         <div className="container">
           <p className="eyebrow section-eyebrow fade-up">WAAROM NOROBOT</p>
           <h2 className="section-headline fade-up d1">
-            Technologie moet zich aanpassen aan <em>mensen</em>, niet andersom.
+            <em>Er zijn genoeg tools die indrukwekkend zijn.</em>
           </h2>
           <p className="section-body fade-up d2">
-            De meeste AI-tools zijn gebouwd voor techneuten. Wij geloven dat
-            de kracht van AI voor iedereen toegankelijk moet zijn. Geen
-            ingewikkelde interfaces. Geen jargon. Gewoon tools die doen wat
-            ze beloven.
+            Te weinig die iets oplossen. NoRobot bouwt tools voor mensen die
+            al weten dat AI kan helpen, maar nog zoeken naar iets wat echt bij
+            hun leven past. Praktisch, direct, zonder gedoe.
           </p>
         </div>
       </section>
@@ -124,11 +123,10 @@ export default function Home() {
         <div className="container">
           <p className="eyebrow section-eyebrow fade-up">CONTACT</p>
           <h2 className="section-headline fade-up d1">
-            Laten we <em>praten.</em>
+            <em>Samen iets bouwen?</em>
           </h2>
           <p className="section-body fade-up d2">
-            Benieuwd wat NoRobot voor jou kan betekenen? Of gewoon even
-            sparren over AI en tools? Stuur een mail.
+            Wil je samenwerken, een tool proberen of gewoon even sparren?
           </p>
           <a
             href="mailto:caesar@newfound.agency"
