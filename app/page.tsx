@@ -1,7 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-
 const tools = [
   {
     name: 'BRANDPROMPT',
@@ -34,19 +32,11 @@ export default function Home() {
     <main className="bg-cream min-h-screen">
       {/* Navbar */}
       <nav className="container">
-        <div className="navbar">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div 
-              className="w-4 h-4 rounded-sm"
-              style={{ backgroundColor: '#D4580A' }}
-            />
-            <span className="font-serif text-xl lowercase" style={{ color: '#1A1A1A' }}>
-              norobot
-            </span>
+        <div className="navbar animate-fade-up">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <span className="logo-mark" />
+            <span className="logo-text">norobot</span>
           </div>
-
-          {/* Hamburger (visual only) */}
           <div className="hamburger">
             <span></span>
             <span></span>
@@ -56,19 +46,22 @@ export default function Home() {
 
       {/* Hero */}
       <section className="container hero">
-        <p className="section-label hero-label">TOOLS THAT MAKE LIFE BETTER</p>
+        <p className="section-label hero-label animate-fade-up delay-1">
+          TOOLS THAT MAKE LIFE BETTER
+        </p>
 
-        <h1 className="font-serif hero-headline">
+        <h1 className="font-serif hero-headline animate-fade-up delay-2">
           AI built for{' '}
           <em>real people</em>.
         </h1>
 
-        <p className="font-sans hero-subtitle">
-          NoRobot maakt tools die je dagelijkse leven een stukje makkelijker maken. 
-          Niet voor developers. Voor iedereen die al weet dat AI kan helpen.
+        <p className="font-sans hero-subtitle animate-fade-up delay-3">
+          NoRobot maakt tools die je dagelijkse leven een stukje
+          makkelijker maken. Niet voor developers. Voor iedereen die al
+          weet dat AI kan helpen.
         </p>
 
-        <div className="hero-buttons">
+        <div className="hero-buttons animate-fade-up delay-4">
           <a href="#tools" className="btn-primary font-sans">
             Bekijk de tools
           </a>
@@ -78,29 +71,26 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="container"><hr className="section-divider" /></div>
+
       {/* Tools Section */}
       <section id="tools" className="container section">
-        <p className="section-label" style={{ marginBottom: '2rem' }}>TOOLS</p>
+        <p className="section-label animate-fade-up" style={{ marginBottom: '3rem' }}>
+          TOOLS
+        </p>
 
         <div className="tools-grid">
-          {tools.map((tool) => (
-            <div key={tool.name} className="tool-card">
+          {tools.map((tool, i) => (
+            <div key={tool.name} className={`tool-card animate-fade-up delay-${i + 2}`}>
               <h3 className="tool-name">{tool.name}</h3>
-              <p className="font-sans text-sub" style={{ fontSize: '0.9375rem', lineHeight: 1.6 }}>
+              <p className="font-sans text-sub" style={{ fontSize: '0.9375rem', lineHeight: 1.7 }}>
                 {tool.description}
               </p>
-              <a 
+              <a
                 href={tool.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-sub"
-                style={{ 
-                  fontSize: '0.875rem', 
-                  textDecoration: 'none',
-                  transition: 'color 0.2s ease'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#D4580A'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#6B6560'}
+                className="tool-link"
               >
                 {tool.url}
               </a>
@@ -113,45 +103,58 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="container"><hr className="section-divider" /></div>
+
       {/* Visie Section */}
       <section id="visie" className="container section">
-        <p className="section-label" style={{ marginBottom: '2rem' }}>WAAROM NOROBOT</p>
+        <p className="section-label animate-fade-up" style={{ marginBottom: '2.5rem' }}>
+          WAAROM NOROBOT
+        </p>
 
-        <h2 className="font-serif section-headline">
+        <h2 className="font-serif section-headline animate-fade-up delay-1">
           <em>Er zijn genoeg tools die indrukwekkend zijn.</em>
         </h2>
 
-        <p className="font-sans section-body">
-          Te weinig die iets oplossen. NoRobot bouwt tools voor mensen die al weten 
-          dat AI kan helpen, maar nog zoeken naar iets wat echt bij hun leven past. 
+        <p className="font-sans section-body animate-fade-up delay-2">
+          Te weinig die iets oplossen. NoRobot bouwt tools voor mensen die al weten
+          dat AI kan helpen, maar nog zoeken naar iets wat echt bij hun leven past.
           Praktisch, direct, zonder gedoe.
         </p>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="container section" style={{ paddingBottom: '5rem' }}>
-        <p className="section-label" style={{ marginBottom: '2rem' }}>CONTACT</p>
+      <div className="container"><hr className="section-divider" /></div>
 
-        <h2 className="font-serif section-headline">
+      {/* Contact Section */}
+      <section id="contact" className="container section">
+        <p className="section-label animate-fade-up" style={{ marginBottom: '2.5rem' }}>
+          CONTACT
+        </p>
+
+        <h2 className="font-serif section-headline animate-fade-up delay-1">
           Samen iets bouwen?
         </h2>
 
-        <p className="font-sans section-body" style={{ marginBottom: '1.5rem' }}>
+        <p className="font-sans section-body animate-fade-up delay-2" style={{ marginBottom: '2rem' }}>
           Wil je samenwerken, een tool proberen of gewoon even sparren?
         </p>
 
-        <a 
-          href="mailto:caesar@newfound.agency" 
-          className="font-sans link-orange"
-          style={{ fontSize: '1.125rem' }}
+        <a
+          href="mailto:caesar@newfound.agency"
+          className="font-sans link-orange animate-fade-up delay-3"
+          style={{ fontSize: '1.1875rem' }}
         >
           caesar@newfound.agency
         </a>
-
-        <p className="font-sans footer-note">
-          NoRobot is een initiatief van Newfound — strategisch branding bureau.
-        </p>
       </section>
+
+      {/* Footer */}
+      <div className="container">
+        <footer className="footer">
+          <p className="footer-note">
+            NoRobot is een initiatief van Newfound - strategisch branding bureau.
+          </p>
+        </footer>
+      </div>
     </main>
   )
 }
