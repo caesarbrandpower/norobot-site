@@ -1,12 +1,12 @@
 # NoRobot.ai
 
-AI built for real people. Tools die je dagelijkse leven een stukje makkelijker maken.
+AI built for real people.
 
 ## Stack
 
-- Next.js 14 (App Router)
-- Playfair Display + Inter (Google Fonts via next/font)
-- Deployed on Vercel
+- Next.js 14, App Router
+- Playfair Display + Inter via next/font
+- Vercel deployment
 
 ## Development
 
@@ -14,9 +14,3 @@ AI built for real people. Tools die je dagelijkse leven een stukje makkelijker m
 npm install
 npm run dev
 ```
-
-## Routes
-
-- `/` - Homepage
-- `/tools` - Tools overview (coming soon)
-- `/notes` - Notes (coming soon)

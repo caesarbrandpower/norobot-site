@@ -4,13 +4,13 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="nav">
       <div className="container">
         <div className="nav-inner">
-          <Link href="/" className="logo" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="logo" onClick={() => setOpen(false)}>
             <span className="logo-mark" />
             <span className="logo-text">norobot</span>
           </Link>
@@ -22,8 +22,8 @@ export function Navbar() {
           </nav>
 
           <button
-            className={`hamburger ${menuOpen ? 'is-open' : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
+            className={`hamburger${open ? ' is-open' : ''}`}
+            onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
             <span />
@@ -32,16 +32,10 @@ export function Navbar() {
         </div>
       </div>
 
-      <div className={`mobile-menu ${menuOpen ? 'is-open' : ''}`}>
-        <Link href="/tools" className="nav-link" onClick={() => setMenuOpen(false)}>
-          Tools
-        </Link>
-        <Link href="/notes" className="nav-link" onClick={() => setMenuOpen(false)}>
-          Notes
-        </Link>
-        <Link href="/#contact" className="nav-link" onClick={() => setMenuOpen(false)}>
-          Contact
-        </Link>
+      <div className={`mobile-menu${open ? ' is-open' : ''}`}>
+        <Link href="/tools" onClick={() => setOpen(false)}>Tools</Link>
+        <Link href="/notes" onClick={() => setOpen(false)}>Notes</Link>
+        <Link href="/#contact" onClick={() => setOpen(false)}>Contact</Link>
       </div>
     </header>
   )

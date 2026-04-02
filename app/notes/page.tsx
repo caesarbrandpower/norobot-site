@@ -1,9 +1,7 @@
-export default function NotesPage() {
+export default function Notes() {
   return (
-    <main>
-      <div className="coming-soon">
-        <h1>Coming soon</h1>
-      </div>
+    <main className="coming-soon">
+      <h1>Coming soon</h1>
     </main>
   )
 }
