@@ -208,19 +208,20 @@ body {
 .hero {
   padding-top: 5rem;
   padding-bottom: 5rem;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .hero {
-    padding-top: 8rem;
-    padding-bottom: 10rem;
+    padding-top: 140px;
+    padding-bottom: 140px;
   }
 }
 
 @media (min-width: 1024px) {
   .hero {
-    padding-top: 10rem;
-    padding-bottom: 12rem;
+    padding-top: 160px;
+    padding-bottom: 160px;
   }
 }
 
@@ -241,20 +242,22 @@ body {
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--ink);
-  max-width: 860px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1.75rem;
 }
 
 @media (min-width: 768px) {
   .hero-headline {
-    font-size: 72px;
+    font-size: 76px;
     margin-bottom: 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-headline {
-    font-size: 84px;
+    font-size: 88px;
   }
 }
 
@@ -268,6 +271,8 @@ body {
   line-height: 1.7;
   color: var(--sub);
   max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 2.25rem;
 }
 
@@ -280,6 +285,7 @@ body {
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.875rem;
 }
 
@@ -351,6 +357,7 @@ body {
 
 .section-eyebrow {
   margin-bottom: 2.25rem;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -367,12 +374,15 @@ body {
   letter-spacing: -0.015em;
   color: var(--ink);
   max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .section-headline {
-    font-size: 48px;
+    font-size: 52px;
     margin-bottom: 1.75rem;
   }
 }
@@ -386,7 +396,10 @@ body {
   font-size: 17px;
   line-height: 1.75;
   color: var(--sub);
-  max-width: 560px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* ── Tool Cards ── */
@@ -394,7 +407,7 @@ body {
 .tools-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
@@ -474,7 +487,8 @@ body {
 /* ── Contact ── */
 
 .mail-link {
-  display: inline-block;
+  display: block;
+  text-align: center;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 17px;
   color: var(--orange);
@@ -500,6 +514,7 @@ body {
   font-size: 12px;
   color: var(--sub);
   line-height: 1.5;
+  text-align: center;
 }
 
 /* ── Coming Soon ── */
