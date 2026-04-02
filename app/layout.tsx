@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
+import { Navbar } from './components/Navbar'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -15,8 +16,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'NoRobot — Tools that make life better',
-  description: 'NoRobot maakt tools die je dagelijkse leven een stukje makkelijker maken. Niet voor developers. Voor iedereen die al weet dat AI kan helpen.',
+  title: 'NoRobot - AI built for real people',
+  description:
+    'NoRobot maakt tools die je dagelijkse leven een stukje makkelijker maken. Niet voor developers. Voor iedereen die al weet dat AI kan helpen.',
 }
 
 export default function RootLayout({
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body className={`${playfair.variable} ${inter.variable}`}>
+        <Navbar />
         {children}
       </body>
     </html>
